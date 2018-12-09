@@ -13,7 +13,7 @@ Note : for now this is a proof of concept for building/releasing the above archi
 
 With a few modifications to a few Makefiles in ATS-Postiats and the buildRelease.sh script, one can readily build the above archives.
 
-Simply build the Dockerfile in this repository provided [here](https://github.com/sparverius/ATS2-release-test/blob/master/Dockerfile). The Dockerfile uses the docker image 'telos/ats1' (just built yesterday found [here](https://hub.docker.com/r/telos/ats1/) on docker hub) which includes a prebaked 'ats-lang-anairiats-0.2.12' with the necessary packages to build ATS2.
+Simply build the Dockerfile in this repository provided [here](https://github.com/sparverius/ATS2-release-test/blob/master/Dockerfile). The Dockerfile uses the docker image 'telos/ats1' (built 12-03 found [here](https://hub.docker.com/r/telos/ats1/) on docker hub) which includes a prebaked 'ats-lang-anairiats-0.2.12' with the necessary packages to build ATS2.
 
 To view the changes to the following files : <br/>
 ATS2-Postiats/Makefile_devl <br/>
