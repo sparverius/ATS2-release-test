@@ -1,5 +1,16 @@
 services:
-  - docker
-
+- docker
 script:
 - docker build -t telos/test .
+- docker cp telos/test:/tmp/ATS-Postiats/doc/DISTRIB/*.tgz ${TRAVIS_BUILD_DIR}
+deploy:
+  provider: releases
+  api_key:
+    secure: FQFnvv9uGGy0eNEYowoNYzSMLs5W6xxtid1rFdWvzsRbdTu5yUqnXIYCQ+wHlhIyZiMS209CuROT2DrH1yxq67AAPDJgRkydb162RwUrPwSrDM9Y+lH2HsbepbtfAgYHalsVPwcVQYxh+DgyIPgqIGJAws4/yXAtDsu5+vu8+RcF20lgyTNiApWhr6NfJpDmTVN6TYMltA47pcC3k1GJ4kvSN0xMrT/iCL3Z9kev8aZWC8dxVNeP7sFv+xx+ytmadeE0nVSSv/Iebhc83Zg2bRI6c06vUPenEkEaptl6KK/Hi9pNYZPSLuJHpAuSlOlpKLx2f1MPIUN1NZbnA+vC6+9iSSVpDbkuVegULshoI79HlkFx0BO/w/WboLpUXdC/Pa6XJpiZUJ6pBog7np7azE3/gcPtsaWGvDTVnioNAz9bORkm6/JUTzHsYU8w8vtSH9zDSzhrdVA++hHt1b90MjlKu3w6qZZjjNFOQ5sucNOmZ0ZAOyPT4ug5okKIqezW+cNMpKr2iAZerK81PVQPJnKHJHnmMhEv1KsA+jX48XH6se7NpsmaHg7Q8Zs1v5e7Hxv1IvJepvdHWFInW8uCIjuCkkreK6OIjBLT31lEc0jauTKPqBxXoSX01ZReLGXB/Si9lmPlyS/lzNcX062WjmjQyN33g0ctGnrG84F2ZGw=
+  file: "${TRAVIS_BUILD_DIR}/*.tgz"
+  file_glob: true
+  skip_cleanup: true
+  on:
+    repo: sparverius/ATS2-release-test
+    branch: 0.4.0
+    tags: true
