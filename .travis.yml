@@ -2,7 +2,8 @@ services:
 - docker
 script:
 - docker build -t telos/test .
-- docker cp telos/test:/tmp/ATS-Postiats/doc/DISTRIB/*.tgz ${TRAVIS_BUILD_DIR}
+- docker run -d --name ats2 telos/test
+- docker cp ats2:/tmp/ATS-Postiats/doc/DISTRIB/*.tgz ${TRAVIS_BUILD_DIR}
 deploy:
   provider: releases
   api_key:
